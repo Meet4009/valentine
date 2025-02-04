@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: red;
+            color: white;
+        }
+        .no {
+            background-color: gray;
+            color: white;
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+        .hearts {
+            font-size: 50px;
+            color: red;
+            animation: float 2s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        .crying {
+            font-size: 50px;
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="question">Will you be my Valentine? 💖</p>
+        <div class="buttons">
+            <button class="yes" onclick="showLove()">Yes</button>
+            <button class="no" id="noButton">No</button>
+        </div>
+        <div id="animation" class="hidden"></div>
+    </div>
+
+    <script>
+        function showLove() {
+            document.getElementById('animation').innerHTML = "❤❤❤ Yay! I love you! ❤❤❤";
+            document.getElementById('animation').className = "hearts";
+        }
+
+        document.getElementById("noButton").addEventListener("mouseover", function() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            this.style.left = `${x}px`;
+            this.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
